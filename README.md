@@ -8,5 +8,3 @@ A lightweight browser‑extension starter kit that **removes copy/selection rest
 * **Floating copy button** for visually selecting and copying any element’s text.
 * **Configurable blacklist** to exclude specific domains.
 * Zero‑permission by default (`activeTab` & `storage` only).
-* Built with **TypeScript**, **Vite**, **ESLint + Prettier**, and unit‑tested with **Vitest**.
-
