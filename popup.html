@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 280px;
+            padding: 15px;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            background: #f8f9fa;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .toggle-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .toggle-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .toggle-label {
+            font-weight: 500;
+            color: #34495e;
+        }
+        
+        .toggle-desc {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-top: 2px;
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .3s;
+            border-radius: 24px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: #4CAF50;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+        
+        .copy-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .copy-btn:active {
+            transform: translateY(0);
+        }
+        
+        .status {
+            text-align: center;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .status.enabled {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status.disabled {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .tip {
+            font-size: 12px;
+            color: #6c757d;
+            text-align: center;
+            margin-top: 10px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">网页限制解除</div>
+        <div class="subtitle">Web Limits Remover</div>
+    </div>
+    
+    <div class="section">
+        <div class="toggle-item">
+            <div>
+                <div class="toggle-label">自动解除限制</div>
+                <div class="toggle-desc">自动解除复制、选择、右键限制</div>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="autoRemove">
+                <span class="slider"></span>
+            </label>
+        </div>
+        
+        <div class="toggle-item">
+            <div>
+                <div class="toggle-label">悬浮复制按钮</div>
+                <div class="toggle-desc">显示悬浮按钮进行元素选择复制</div>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="floatingCopy">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+    
+    <div class="section">
+        <button class="copy-btn" id="manualCopy">
+            📋 手动选择复制元素
+        </button>
+        <div class="tip">
+            点击后可以在页面上选择任意元素进行复制
+        </div>
+    </div>
+    
+    <div class="status" id="status">
+        正在加载状态...
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
